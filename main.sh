@@ -15,14 +15,21 @@ else
 		regex1=$(<$2)
 		regex2=""
 		regex3=""
-		if [ $# == 3 ]; then regex2=$(<$3)
+
+		if [ $# == 3 ]; then
+			regex2=$(<$3)
 		fi
-		if [ $# == 4 ]; then regex3=$(<$4)
+
+		if [ $# == 4 ]; then
+			regex2=$(<$3)
+			regex3=$(<$4)
                 fi
-		while read line;
-		do
-			wget -q -O - "$1""$line" | grep -oP "$regex1"\|"regex2"\|"$regex3" &
-		done < subdoms.txt
+		#while read line;
+		#do
+		#	wget -q -O - "$1""$line" | grep -oP "$regex1"\|"$regex2"\|"$regex3" &
+		#done < subdoms.txt
+		#test:
+		wget -q -O - $1 | grep -oP "$regex1"\|"$regex2"\|"$regex3"
 		rm subdoms.txt
 	fi
 fi
