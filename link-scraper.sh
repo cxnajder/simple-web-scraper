@@ -6,5 +6,5 @@ then
 	echo "example: https://webscraper.io/test-sites/e-commerce/allinone"
 	exit -1
 else
-	wget -q -O - $1 | grep  -oP '(?<=<a href=").*?(?=")' | sort | uniq | grep -v "#"
+	wget -q -O - $1 | grep  -oP '(?<=href=").*?(?=")' | sort | uniq | grep -v "#"
 fi
