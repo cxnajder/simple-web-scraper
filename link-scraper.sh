@@ -3,7 +3,7 @@
 if [ -z $1 ]
 then
 	echo "*** YOU FORGOT THE URL ***"
-	echo "example: https://webscraper.io/test-sites/e-commerce/allinone"
+	echo "example: $(<example-link)"
 	exit -1
 else
 	wget -q -O - $1 | grep  -oP '(?<=href=").*?(?=")' | sort | uniq | grep -v "#"
