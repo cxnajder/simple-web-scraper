@@ -15,6 +15,6 @@ if subdir_file.readable():
 				if original_link[i:] in subdir_list[j]:
 					subdir_list[j] = subdir_list[j].replace(original_link[i:], "", 1)
 					break
-for i in subdir_list:
-	print(i)
+	for i in subdir_list:
+		print(i)
 subdir_file.close()
